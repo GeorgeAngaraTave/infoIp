@@ -1,4 +1,4 @@
-# API AmazonGear V2 Flask
+# API V2 Flask
 
 BackEnd  en Flask Python 3.7
 
