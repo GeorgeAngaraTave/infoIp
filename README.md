@@ -74,6 +74,11 @@ A continuación se describen algunas configuraciones para iniciar el servidor we
 ```sh
 (env) $ python main.py
 ```
+## Servicios
 
-> El folder **Test** se utiliza para archivos de pruebas y adicionalmente el folder **.gcloud** si se usa [Google Cloud Platform.](https://cloud.google.com/)
+```sh
+$HOST/analyze/www.google.com
+$HOSTquery
+```
+
 >>>>>>> Inicio de proyecto, estructura en Flask con python 37
