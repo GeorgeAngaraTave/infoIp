@@ -13,12 +13,13 @@ def home():
     return validator()
 
 @app.route('/analyze/<string:web>', methods=['GET'])
-def getInfoIp(web):  
+def index(web):  
     return infoIp(web)
 
 @app.route('/query', methods=['GET'])
 def info():  
     return queryInfo()        
+
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000)

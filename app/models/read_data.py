@@ -1,4 +1,5 @@
 import re
+import os
 import json
 import requests
 import socket
@@ -6,7 +7,6 @@ import urllib
 from bs4 import BeautifulSoup
 import whois
 import csv, operator
-
 from flask import Flask, jsonify, request
 from app.controllers.settings.parser_data import *
 from app.controllers.settings.validate_data import *
@@ -22,6 +22,7 @@ def infoIp(web):
         
         info = (urllib.request.urlopen("https://"+web))
         print(info)
+
         redditHtml = info.read()
         soup = BeautifulSoup(redditHtml)
 
@@ -44,7 +45,7 @@ def infoIp(web):
             "title": str(title)
         }
         
-        archivo = open("C:/Users/JANGARITA.SERVINF/Documents/GEORGE/PRUEBA/api_/app/models/search.csv", mode='a')
+        archivo = open(os.getcwd()+"/app/models/search.csv", mode='a')
         archivo.write(web)
         archivo.write(",")
         archivo.close()
@@ -52,11 +53,9 @@ def infoIp(web):
 
         return response(200, 'ok', result) 
 
-def queryInfo():   
-    with open("search.csv", mode="r") as csvarchivo:
+def queryInfo():    
+    with open(os.getcwd()+"/app/models/search.csv", mode="r") as csvarchivo:
         entrada = csv.reader(csvarchivo)
-        print(entrada)
         for reg in entrada:
-            reg = reg
-            for info in reg:
-                return response(200, 'ok', reg)          
+            print(reg)
+            return response(200, 'ok', reg)          
